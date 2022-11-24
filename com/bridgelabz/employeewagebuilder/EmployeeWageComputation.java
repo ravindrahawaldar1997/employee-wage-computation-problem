@@ -5,6 +5,7 @@ public class EmployeeWageComputation {
 	public static int EMPLOYEE_HOURS=0;
 	public static final int EMPLOYEE_RATE_PER_HOUR=20;
 	public static final int PART_TIME=2;
+	public static final int NUMBER_OF_WORKING_DAYS=20;
 	void checkEmployeeAttendence() {
 		double employeeCheck = Math.floor(Math.random() * 10) % 2;
 		if ( employeeCheck == FULL_TIME)
@@ -54,10 +55,33 @@ public class EmployeeWageComputation {
 		 EMPLOYEE_WAGE = EMPLOYEE_HOURS * EMPLOYEE_RATE_PER_HOUR;
 		 System.out.println("Employee wage:" + EMPLOYEE_WAGE);
 	}
+	void monthlyEmployeeWage() {
+		int EMPLOYEE_WAGE=0;
+		int TOTAL_EMPLOYEE_WAGE=0;
+		for (int day=0; day<NUMBER_OF_WORKING_DAYS; day++) {
+		int employeeCheck=(int)Math.floor(Math.random() *10) %3;
+		 switch(employeeCheck) {
+		 case FULL_TIME :
+			 EMPLOYEE_HOURS=16;
+			 break;
+		 case PART_TIME :
+			 EMPLOYEE_HOURS=8;
+			 break;
+			 default:
+				 EMPLOYEE_HOURS=0;
+			 }
+		 EMPLOYEE_WAGE = EMPLOYEE_HOURS * EMPLOYEE_RATE_PER_HOUR;
+		 TOTAL_EMPLOYEE_WAGE += EMPLOYEE_WAGE;
+		 System.out.println("Employee wage:" + EMPLOYEE_WAGE);
+	}
+	System.out.println("Total Employee Wage " +TOTAL_EMPLOYEE_WAGE);
+	}
 	public static void main(String[] args) {
 		EmployeeWageComputation employeewage = new EmployeeWageComputation();
 		//employeewage.checkEmployeeAttendence();
 		//employeewage.employeeDailyWage();
 		//employeewage.partTimeEmployeeWage();
-		employeewage.employeeWageUsingSwitchCase();		}
+		//employeewage.employeeWageUsingSwitchCase();		
+		employeewage.monthlyEmployeeWage();
+	}
 }
