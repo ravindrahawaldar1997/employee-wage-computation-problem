@@ -38,11 +38,26 @@ public class EmployeeWageComputation {
 		EMPLOYEE_WAGE=EMPLOYEE_HOURS * EMPLOYEE_RATE_PER_HOUR;
 		System.out.println("Employee Wage " + EMPLOYEE_WAGE);
 	}
-
+	void employeeWageUsingSwitchCase() {
+		int EMPLOYEE_WAGE=0;
+		 int employeeCheck=(int)Math.floor(Math.random() *10) %3;
+		 switch(employeeCheck) {
+		 case FULL_TIME :
+			 EMPLOYEE_HOURS=16;
+			 break;
+		 case PART_TIME :
+			 EMPLOYEE_HOURS=8;
+			 break;
+			 default:
+				 EMPLOYEE_HOURS=0;
+			  }
+		 EMPLOYEE_WAGE = EMPLOYEE_HOURS * EMPLOYEE_RATE_PER_HOUR;
+		 System.out.println("Employee wage:" + EMPLOYEE_WAGE);
+	}
 	public static void main(String[] args) {
 		EmployeeWageComputation employeewage = new EmployeeWageComputation();
 		//employeewage.checkEmployeeAttendence();
 		//employeewage.employeeDailyWage();
-		employeewage.partTimeEmployeeWage();
-		}
+		//employeewage.partTimeEmployeeWage();
+		employeewage.employeeWageUsingSwitchCase();		}
 }
